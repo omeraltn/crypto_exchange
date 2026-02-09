@@ -1,0 +1,6 @@
+- tailwindcss
+- axios
+- lucide-react
+- react-router-dom
+- chart.js
+- react-chartjs-2
