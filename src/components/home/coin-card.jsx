@@ -72,7 +72,7 @@ const CoinCard = ({ coin }) => {
       <div className="space-y-3">
         <div className="flex-between">
           <span className="card-label">24s Hacim</span>
-          <p className="card-value  ">{coin.total_volume}</p>
+          <p className="card-value  ">{formatBigNumber(coin.total_volume)}</p>
         </div>
       </div>
       {/* alt kısım */}
@@ -85,7 +85,6 @@ const CoinCard = ({ coin }) => {
             year: "numeric",
             hour: "2-digit",
             minute: "2-digit",
-            second: "2-digit",
           })}
         </span>
       </div>

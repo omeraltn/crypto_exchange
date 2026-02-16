@@ -21,7 +21,6 @@ const Home = () => {
   } = useCoins();
 
   if (error) return <Error message={error} refetch={fetchCoins} />;
-  console.log(loading, error, coins);
   return (
     <div>
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">

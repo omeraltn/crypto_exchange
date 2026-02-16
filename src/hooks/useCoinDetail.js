@@ -16,7 +16,11 @@ const useCoinDetail = (coinId) => {
 
   //coin detaylarını çeken fonksiyon
   const getCoinsDetails = (isRefreshing = true) => {
-    isRefreshing ? setRefreshing(true) : setLoading(true);
+    if (isRefreshing) {
+      setRefreshing(true);
+    } else {
+      setLoading(true);
+    }
 
     api
       .get(`/coins/${id}`)
@@ -40,9 +44,10 @@ const useCoinDetail = (coinId) => {
     api
       .get(`/coins/${id}/market_chart`, { params })
       .then((res) => {
-        console.log(res.data);
+        setPriceHistory(res.data);
+        setError(null);
       })
-      .catch((err) => console.log(err.message))
+      .catch((err) => setError(err.message))
       .finally(setHistoryLoading(false));
   };
 
@@ -50,12 +55,20 @@ const useCoinDetail = (coinId) => {
   useEffect(() => {
     getCoinsDetails();
     fetchPriceHistory();
-  }, [id, selectedPeriod]);
-
+  }, [id]);
   //ekrandaki verileri yenilemek için kullanılacak fonksiyon
   const refreshData = () => {
     getCoinsDetails();
+    fetchPriceHistory();
   };
+
+  //gün değeri değişince yeni fiyat geçmişini al
+  useEffect(() => {
+    if (coin) {
+      refreshData();
+    }
+  }, [selectedPeriod]);
+
   //hook'un return ettiği verileri belirli
   return {
     coin,

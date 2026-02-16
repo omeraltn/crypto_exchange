@@ -43,3 +43,29 @@ export const formatBigNumber = (value) => {
 
   return `${value.toLocaleString("en-US")}`;
 };
+
+//tarihi formatla
+export const formatDate = (timestamp, days) => {
+  const date = new Date(timestamp);
+  //1 gün seçiliyse saat ve dakikayi döndür
+  if (days === 1) {
+    return date.toLocaleTimeString("tr", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  } else if (days === 7) {
+    //7 gün seçiliyse gün/Ay/yıl
+
+    return date.toLocaleDateString("tr", {
+      day: "2-digit",
+      month: "2-digit",
+      weekday: "short",
+    });
+  } else {
+    //1 haftadan büyükse gün / döndür
+    return date.toLocaleDateString("tr", {
+      day: "2-digit",
+      month: "2-digit",
+    });
+  }
+};

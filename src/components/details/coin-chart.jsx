@@ -1,4 +1,6 @@
 import { Calendar } from "lucide-react";
+import ChartLoader from "../loader/chart-loader";
+import PriceChart from "./price-chart";
 
 const CoinCart = ({
   symbol,
@@ -36,6 +38,16 @@ const CoinCart = ({
           ))}
         </div>
       </div>
+      {/* fiyat grafiği */}
+      {historyLoading ? (
+        <ChartLoader />
+      ) : (
+        <PriceChart
+          symbol={symbol}
+          priceHistory={priceHistory}
+          days={selectedPeriod}
+        />
+      )}
     </div>
   );
 };

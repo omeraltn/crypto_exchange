@@ -21,10 +21,10 @@ const Infolist = ({ total, lastUpdated }) => {
         <div>
           <p className="card-label">Durum</p>
           <div className="card-value text-lg font-bold flex items-center gap-2">
-            <p className="flex justify-center items-center gap-1">
+            <div className="flex justify-center items-center gap-1">
               <p className="size-2.5 bg-red-700 rounded-full animate-pulse" />
               <span>Canlı</span>
-            </p>
+            </div>
           </div>
         </div>
       </div>

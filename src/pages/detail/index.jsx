@@ -46,7 +46,7 @@ const Detail = () => {
         setSelectedPeriod={setSelectedPeriod}
       />
       <CoinStats coin={coin} />
-      <CoinDescription description={coin.description} />
+      <CoinDescription description={coin.description.en} />
     </div>
   );
 };
