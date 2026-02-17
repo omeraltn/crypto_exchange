@@ -52,4 +52,4 @@ Responsive Tasarım: Tüm ekran boyutlarına (mobil, tablet, desktop) tam uyumlu
 
 # GIFs
 
-![](./public/youtube.gif)
+![](./public/cryptoexchange.gif)
